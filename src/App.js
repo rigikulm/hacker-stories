@@ -5,7 +5,7 @@ const welcome = {
   title: 'React'
 };
 
-const list [
+const list = [
   {
     title: 'React',
     url: 'https://reactjs.org',
@@ -20,7 +20,7 @@ const list [
     author: 'Dan Abramov',
     num_comments: 2,
     points: 5,
-    ObjectID: 1
+    objectID: 1
   }
 ];
 
@@ -42,9 +42,17 @@ function App() {
       <hr/>
 
       {list.map((item) => {
-        return <div>{item.title}</div>
-      });
-      }
+        return (
+          <div key={item.objectID}>
+            <span>
+              <a href={item.url}>{item.title}</a>
+            </span>
+            <span>{item.author}</span>
+            <span>{item.num_comments}</span>
+            <span>{item.points}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }
